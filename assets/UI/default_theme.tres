@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cekibblea2olq"]
+
+[resource]
+Button/font_sizes/font_size = 32
+HBoxContainer/constants/separation = 12
+Label/font_sizes/font_size = 32
