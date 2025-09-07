@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuoonglltbd8"]
+
+[ext_resource type="Script" uid="uid://bwih4lt4q07b3" path="res://global_scripts/components/interaction_zone.gd" id="1_4d3vx"]
+
+[node name="interactionZone" type="Area2D"]
+script = ExtResource("1_4d3vx")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

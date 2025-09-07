@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://df2mqu8coiph2"]
+
+[ext_resource type="Texture2D" uid="uid://c0chtc2htokto" path="res://assets/UI/arrow_r.png" id="1_1cto0"]
+[ext_resource type="Shader" uid="uid://bktihmtmud80j" path="res://global_scripts/components/outlineshader.gdshader" id="1_gyl1a"]
+[ext_resource type="Script" uid="uid://o2bgbilk64ph" path="res://global_scripts/components/scene_swapper.gd" id="1_rsyyy"]
+[ext_resource type="PackedScene" uid="uid://cuoonglltbd8" path="res://global_scripts/components/interaction_zone.tscn" id="4_k5e72"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6mcy"]
+shader = ExtResource("1_gyl1a")
+shader_parameter/line_color = Color(0.786668, 0.803705, 0.898841, 1)
+shader_parameter/line_thickness = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a167s"]
+size = Vector2(152, 90)
+
+[node name="arrow_swapper" type="Node2D"]
+script = ExtResource("1_rsyyy")
+
+[node name="shadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_m6mcy")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1cto0")
+
+[node name="arrow" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1cto0")
+
+[node name="interactionZone" parent="." node_paths=PackedStringArray("outlined_sprite") instance=ExtResource("4_k5e72")]
+outlined_sprite = NodePath("../shadow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionZone"]
+shape = SubResource("RectangleShape2D_a167s")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -70.0
+offset_top = -58.0
+offset_right = 73.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(0.286275, 0.568627, 0.811765, 1)
+theme_override_colors/font_outline_color = Color(0.788235, 0.803922, 0.898039, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "New Scene Name"
+
+[connection signal="has_been_clicked" from="interactionZone" to="." method="_on_interaction_zone_has_been_clicked"]
+[connection signal="mouse_off" from="interactionZone" to="." method="_on_interaction_zone_mouse_off"]
+[connection signal="mouse_on" from="interactionZone" to="." method="_on_interaction_zone_mouse_on"]
