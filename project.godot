@@ -13,7 +13,6 @@ config_version=5
 config/name="Kurshal Interactive Reference"
 run/main_scene="uid://buoqivtamo5lr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(0.54902, 0.54902, 0.54902, 1)
 boot_splash/show_image=false
 boot_splash/image="uid://8r1mgodvvokq"
 config/icon="res://icon.svg"
