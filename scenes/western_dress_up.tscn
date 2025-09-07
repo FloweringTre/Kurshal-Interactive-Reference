@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://buoqivtamo5lr"]
+[gd_scene load_steps=25 format=3 uid="uid://buoqivtamo5lr"]
 
 [ext_resource type="Texture2D" uid="uid://dc1wu4egr4anr" path="res://assets/kurshal doll/000-signature.png" id="1_64s04"]
 [ext_resource type="Script" uid="uid://cvck4it6t2hyk" path="res://scenes/western_dress_up.gd" id="1_dx85r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c472euuyo6lyh" path="res://assets/kurshal doll/western/shirts.png" id="8_64s04"]
 [ext_resource type="Texture2D" uid="uid://batp3p6on0jlr" path="res://assets/kurshal doll/western/mask.png" id="10_hmt25"]
 [ext_resource type="Texture2D" uid="uid://b38jvutcwsbd8" path="res://assets/kurshal doll/western/hat.png" id="11_wjvh4"]
+[ext_resource type="Texture2D" uid="uid://8r1mgodvvokq" path="res://assets/UI/boot_screen.png" id="12_64s04"]
 [ext_resource type="Texture2D" uid="uid://bebagclwug6ej" path="res://assets/kurshal doll/body/hair.png" id="12_cvgrv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dx85r"]
@@ -37,6 +38,66 @@ size = Vector2(119, 271.49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlt5"]
 size = Vector2(374, 92)
+
+[sub_resource type="Animation" id="Animation_3e5nl"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r27ss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmt25"]
+_data = {
+&"RESET": SubResource("Animation_r27ss"),
+&"fade_out": SubResource("Animation_3e5nl")
+}
 
 [node name="WesternDressUp" type="Node2D"]
 script = ExtResource("1_dx85r")
@@ -375,6 +436,22 @@ collision_layer = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction_zones/away_space"]
 polygon = PackedVector2Array(52, 5, 51, 23, 437, 23, 441, 126, 56, 129, 43, 41, 39, 2, -1, 11, -2, 719, 649, 714, 637, 680, 528, 614, 694, 388, 653, 344, 585, 355, 570, 453, 490, 448, 497, 244, 529, 207, 529, 41, 586, 38, 723, 38, 711, 212, 665, 207, 665, 319, 701, 368, 859, 163, 944, 222, 658, 678, 667, 705, 983, 711, 993, 27, 956, 3)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -78.0
+offset_right = 1202.0
+offset_bottom = 720.0
+texture = ExtResource("12_64s04")
+
+[node name="Timer" type="Timer" parent="TextureRect"]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_hmt25")
+}
+
 [connection signal="toggled" from="selector_buttons/outfit_selectors/hat_box/hat_button" to="." method="_on_hat_button_toggled"]
 [connection signal="toggled" from="selector_buttons/outfit_selectors/hair_box/hair_button" to="." method="_on_hair_button_toggled"]
 [connection signal="toggled" from="selector_buttons/outfit_selectors/mask_box/mask_button" to="." method="_on_mask_button_toggled"]
@@ -392,3 +469,4 @@ polygon = PackedVector2Array(52, 5, 51, 23, 437, 23, 441, 126, 56, 129, 43, 41, 
 [connection signal="area_entered" from="interaction_zones/cypress" to="." method="_on_cypress_area_entered"]
 [connection signal="area_entered" from="interaction_zones/name" to="." method="_on_name_area_entered"]
 [connection signal="area_entered" from="interaction_zones/away_space" to="." method="_on_away_space_area_entered"]
+[connection signal="timeout" from="TextureRect/Timer" to="." method="_on_timer_timeout"]
