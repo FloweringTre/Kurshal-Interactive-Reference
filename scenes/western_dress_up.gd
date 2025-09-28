@@ -150,3 +150,9 @@ func _on_name_area_entered(area: Area2D) -> void:
 
 func _on_away_space_area_entered(area: Area2D) -> void:
 	tid_bit_info_text.text = tid_bit_collection["constant"]
+
+#swap scenes
+func _on_button_pressed() -> void:
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	get_tree().change_scene_to_file("res://scenes/cannon_dress_up.tscn")

@@ -1,16 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://buoqivtamo5lr"]
+[gd_scene load_steps=21 format=3 uid="uid://buoqivtamo5lr"]
 
 [ext_resource type="Texture2D" uid="uid://dc1wu4egr4anr" path="res://assets/kurshal doll/000-signature.png" id="1_64s04"]
 [ext_resource type="Script" uid="uid://cvck4it6t2hyk" path="res://scenes/western_dress_up.gd" id="1_dx85r"]
-[ext_resource type="Texture2D" uid="uid://c13lfbpsy5bgl" path="res://assets/kurshal doll/body/body.png" id="2_3e5nl"]
 [ext_resource type="Texture2D" uid="uid://bmkrv6pmfuugd" path="res://assets/kurshal doll/body/cypress.png" id="2_64s04"]
+[ext_resource type="Texture2D" uid="uid://dt6ho8y4i0bnb" path="res://assets/kurshal doll/body/body_tan.png" id="3_dx85r"]
 [ext_resource type="Texture2D" uid="uid://bchvtppd7bkbn" path="res://assets/kurshal doll/western/pants.png" id="4_r27ss"]
 [ext_resource type="Texture2D" uid="uid://bspntqqyhis6u" path="res://assets/kurshal doll/western/chaps.png" id="5_hmt25"]
 [ext_resource type="Texture2D" uid="uid://dldyyo6n65atb" path="res://assets/kurshal doll/western/gloves.png" id="6_cvgrv"]
 [ext_resource type="Texture2D" uid="uid://c472euuyo6lyh" path="res://assets/kurshal doll/western/shirts.png" id="8_64s04"]
 [ext_resource type="Texture2D" uid="uid://batp3p6on0jlr" path="res://assets/kurshal doll/western/mask.png" id="10_hmt25"]
 [ext_resource type="Texture2D" uid="uid://b38jvutcwsbd8" path="res://assets/kurshal doll/western/hat.png" id="11_wjvh4"]
-[ext_resource type="Texture2D" uid="uid://8r1mgodvvokq" path="res://assets/UI/boot_screen.png" id="12_64s04"]
 [ext_resource type="Texture2D" uid="uid://bebagclwug6ej" path="res://assets/kurshal doll/body/hair.png" id="12_cvgrv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dx85r"]
@@ -39,66 +38,6 @@ size = Vector2(119, 271.49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlt5"]
 size = Vector2(374, 92)
 
-[sub_resource type="Animation" id="Animation_3e5nl"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_r27ss"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmt25"]
-_data = {
-&"RESET": SubResource("Animation_r27ss"),
-&"fade_out": SubResource("Animation_3e5nl")
-}
-
 [node name="WesternDressUp" type="Node2D"]
 script = ExtResource("1_dx85r")
 
@@ -109,16 +48,15 @@ offset_bottom = 40.0
 color = Color(0.54902, 0.54902, 0.54902, 1)
 
 [node name="kurshal" type="Node2D" parent="."]
-position = Vector2(695, 357)
+position = Vector2(695, 366)
 scale = Vector2(0.4, 0.4)
 
 [node name="signature" type="Sprite2D" parent="kurshal"]
+modulate = Color(0.11, 0.11, 0.11, 1)
 texture = ExtResource("1_64s04")
 
 [node name="body" type="Sprite2D" parent="kurshal"]
-texture = ExtResource("2_3e5nl")
-hframes = 2
-frame = 1
+texture = ExtResource("3_dx85r")
 
 [node name="cypress" type="Sprite2D" parent="kurshal"]
 texture = ExtResource("2_64s04")
@@ -349,18 +287,8 @@ offset_top = 635.0
 offset_right = 950.0
 offset_bottom = 711.0
 theme_override_font_sizes/font_size = 24
-disabled = true
 text = "Swap to
 Cannon Reference"
-
-[node name="Label" type="Label" parent="selector_buttons/Button"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = -26.0
-offset_right = 159.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 24
-text = "~coming soon~"
 
 [node name="interaction_zones" type="Node2D" parent="."]
 visible = false
@@ -434,23 +362,7 @@ shape = SubResource("RectangleShape2D_mjlt5")
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction_zones/away_space"]
-polygon = PackedVector2Array(52, 5, 51, 23, 437, 23, 441, 126, 56, 129, 43, 41, 39, 2, -1, 11, -2, 719, 649, 714, 637, 680, 528, 614, 694, 388, 653, 344, 585, 355, 570, 453, 490, 448, 497, 244, 529, 207, 529, 41, 586, 38, 723, 38, 711, 212, 665, 207, 665, 319, 701, 368, 859, 163, 944, 222, 658, 678, 667, 705, 983, 711, 993, 27, 956, 3)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -78.0
-offset_right = 1202.0
-offset_bottom = 720.0
-texture = ExtResource("12_64s04")
-
-[node name="Timer" type="Timer" parent="TextureRect"]
-wait_time = 1.5
-one_shot = true
-autostart = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
-libraries = {
-&"": SubResource("AnimationLibrary_hmt25")
-}
+polygon = PackedVector2Array(52, 5, 51, 23, 437, 23, 441, 126, 56, 129, 43, 41, 39, 2, -1, 11, -2, 719, 649, 714, 637, 680, 528, 614, 694, 388, 653, 344, 585, 355, 570, 453, 490, 448, 497, 244, 529, 207, 529, 41, 586, 38, 723, 38, 711, 212, 665, 207, 665, 319, 701, 368, 859, 163, 944, 222, 658, 678, 667, 705, 765, 709, 762, 631, 983, 628, 993, 27, 956, 3)
 
 [connection signal="toggled" from="selector_buttons/outfit_selectors/hat_box/hat_button" to="." method="_on_hat_button_toggled"]
 [connection signal="toggled" from="selector_buttons/outfit_selectors/hair_box/hair_button" to="." method="_on_hair_button_toggled"]
@@ -461,6 +373,7 @@ libraries = {
 [connection signal="pressed" from="selector_buttons/outfit_selectors/shirt_box/shirt_up" to="." method="_on_shirt_up_pressed"]
 [connection signal="pressed" from="selector_buttons/outfit_selectors/pants_box/pants_down" to="." method="_on_pants_down_pressed"]
 [connection signal="pressed" from="selector_buttons/outfit_selectors/pants_box/pants_up" to="." method="_on_pants_up_pressed"]
+[connection signal="pressed" from="selector_buttons/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="interaction_zones/scars" to="." method="_on_scars_area_entered"]
 [connection signal="area_entered" from="interaction_zones/jaw" to="." method="_on_jaw_area_entered"]
 [connection signal="area_entered" from="interaction_zones/mask" to="." method="_on_mask_area_entered"]
@@ -469,4 +382,3 @@ libraries = {
 [connection signal="area_entered" from="interaction_zones/cypress" to="." method="_on_cypress_area_entered"]
 [connection signal="area_entered" from="interaction_zones/name" to="." method="_on_name_area_entered"]
 [connection signal="area_entered" from="interaction_zones/away_space" to="." method="_on_away_space_area_entered"]
-[connection signal="timeout" from="TextureRect/Timer" to="." method="_on_timer_timeout"]
