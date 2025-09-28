@@ -1,0 +1,470 @@
+[gd_scene load_steps=25 format=3 uid="uid://dywvtwc6kfwyc"]
+
+[ext_resource type="Script" uid="uid://co0ik5fi6f2lp" path="res://scenes/cannon_dress_up.gd" id="1_233ry"]
+[ext_resource type="Texture2D" uid="uid://dc1wu4egr4anr" path="res://assets/kurshal doll/000-signature.png" id="2_6n658"]
+[ext_resource type="Texture2D" uid="uid://bcco311xbfo12" path="res://assets/kurshal doll/body/body_base.png" id="3_ty7bg"]
+[ext_resource type="Texture2D" uid="uid://bmkrv6pmfuugd" path="res://assets/kurshal doll/body/cypress.png" id="4_5p6xy"]
+[ext_resource type="Texture2D" uid="uid://bchvtppd7bkbn" path="res://assets/kurshal doll/western/pants.png" id="5_w46sb"]
+[ext_resource type="Texture2D" uid="uid://bspntqqyhis6u" path="res://assets/kurshal doll/western/chaps.png" id="6_wj5bi"]
+[ext_resource type="Texture2D" uid="uid://dldyyo6n65atb" path="res://assets/kurshal doll/western/gloves.png" id="7_0q7b6"]
+[ext_resource type="Texture2D" uid="uid://c472euuyo6lyh" path="res://assets/kurshal doll/western/shirts.png" id="8_1w1lh"]
+[ext_resource type="Texture2D" uid="uid://batp3p6on0jlr" path="res://assets/kurshal doll/western/mask.png" id="9_wot01"]
+[ext_resource type="Texture2D" uid="uid://b38jvutcwsbd8" path="res://assets/kurshal doll/western/hat.png" id="10_3xs6a"]
+[ext_resource type="Texture2D" uid="uid://bebagclwug6ej" path="res://assets/kurshal doll/body/hair.png" id="11_01kan"]
+[ext_resource type="Texture2D" uid="uid://8r1mgodvvokq" path="res://assets/UI/boot_screen.png" id="12_i428j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dx85r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx85r"]
+size = Vector2(146.5, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64s04"]
+size = Vector2(155, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5nl"]
+size = Vector2(152, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r27ss"]
+size = Vector2(57.5, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmt25"]
+size = Vector2(164, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvgrv"]
+size = Vector2(80.9346, 180.53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ttcb"]
+size = Vector2(119, 271.49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlt5"]
+size = Vector2(374, 92)
+
+[sub_resource type="Animation" id="Animation_r27ss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3e5nl"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmt25"]
+_data = {
+&"RESET": SubResource("Animation_r27ss"),
+&"fade_out": SubResource("Animation_3e5nl")
+}
+
+[node name="CannonDessUp" type="Node2D"]
+script = ExtResource("1_233ry")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(960, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.54902, 0.54902, 0.54902, 1)
+
+[node name="kurshal" type="Node2D" parent="."]
+position = Vector2(695, 357)
+scale = Vector2(0.4, 0.4)
+
+[node name="signature" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("2_6n658")
+
+[node name="body" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("3_ty7bg")
+
+[node name="cypress" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("4_5p6xy")
+
+[node name="pants" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("5_w46sb")
+hframes = 3
+
+[node name="chaps" type="Sprite2D" parent="kurshal"]
+visible = false
+texture = ExtResource("6_wj5bi")
+
+[node name="gloves" type="Sprite2D" parent="kurshal"]
+visible = false
+texture = ExtResource("7_0q7b6")
+
+[node name="shirt" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("8_1w1lh")
+hframes = 6
+
+[node name="mask" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("9_wot01")
+hframes = 2
+
+[node name="hat_under" type="Sprite2D" parent="kurshal"]
+visible = false
+texture = ExtResource("10_3xs6a")
+hframes = 2
+frame = 1
+
+[node name="hair" type="Sprite2D" parent="kurshal"]
+texture = ExtResource("11_01kan")
+hframes = 2
+
+[node name="hat_over" type="Sprite2D" parent="kurshal"]
+visible = false
+texture = ExtResource("10_3xs6a")
+hframes = 2
+
+[node name="text_boxes" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="title_label" type="Label" parent="text_boxes"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 416.0
+offset_bottom = 119.0
+text = "Kurshal Interactive Reference
+Western AU"
+horizontal_alignment = 1
+
+[node name="tid_bit_info_text" type="Label" parent="text_boxes"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 41.0
+offset_top = 540.0
+offset_right = 441.0
+offset_bottom = 699.0
+theme_override_constants/line_spacing = -9
+theme_override_font_sizes/font_size = 24
+text = "~Fun Facts about Kurshal~
+Pronouns: They/Them
+Height: 5'8\" / 172 cm
+Hover over different areas to learn more tidbits about them!
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="about" type="Label" parent="text_boxes"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 698.0
+offset_top = 25.0
+offset_right = 948.0
+offset_bottom = 156.0
+theme_override_constants/line_spacing = -9
+theme_override_font_sizes/font_size = 24
+text = "Kurshal is a Mandalorian OC of my own design.
+
+This is them in my "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="text_boxes/about"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 103.0
+offset_right = 206.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0.1365, 0.39325, 0.65, 1)
+theme_override_font_sizes/font_size = 24
+text = "Desolate Rodeo AU"
+uri = "https://www.tumblr.com/kyraltre/790734421573648384/desolate-rodeo-au-western-au"
+
+[node name="selector_buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="outfit_selectors" type="VBoxContainer" parent="selector_buttons"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 44.0
+offset_top = 130.0
+offset_right = 294.0
+offset_bottom = 518.0
+alignment = 1
+
+[node name="hat_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/hat_box"]
+layout_mode = 2
+text = "Hat:"
+
+[node name="hat_button" type="Button" parent="selector_buttons/outfit_selectors/hat_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Off"
+
+[node name="hair_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/hair_box"]
+layout_mode = 2
+text = "Hair:"
+
+[node name="hair_button" type="Button" parent="selector_buttons/outfit_selectors/hair_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "Up"
+
+[node name="mask_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/mask_box"]
+layout_mode = 2
+text = "Mask:"
+
+[node name="mask_button" type="Button" parent="selector_buttons/outfit_selectors/mask_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Down"
+
+[node name="chaps_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/chaps_box"]
+layout_mode = 2
+text = "Chaps:"
+
+[node name="chaps_button" type="Button" parent="selector_buttons/outfit_selectors/chaps_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Off"
+
+[node name="gloves_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/gloves_box"]
+layout_mode = 2
+text = "Gloves:"
+
+[node name="gloves_button" type="Button" parent="selector_buttons/outfit_selectors/gloves_box"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Off"
+
+[node name="shirt_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/shirt_box"]
+layout_mode = 2
+text = "Shirts:"
+
+[node name="shirt_down" type="Button" parent="selector_buttons/outfit_selectors/shirt_box"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+disabled = true
+text = "<"
+
+[node name="shirt_up" type="Button" parent="selector_buttons/outfit_selectors/shirt_box"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = ">"
+
+[node name="pants_box" type="HBoxContainer" parent="selector_buttons/outfit_selectors"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="selector_buttons/outfit_selectors/pants_box"]
+layout_mode = 2
+text = "Pants:"
+
+[node name="pants_down" type="Button" parent="selector_buttons/outfit_selectors/pants_box"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+disabled = true
+text = "<"
+
+[node name="pants_up" type="Button" parent="selector_buttons/outfit_selectors/pants_box"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = ">"
+
+[node name="Button" type="Button" parent="selector_buttons"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 0
+offset_left = 770.0
+offset_top = 635.0
+offset_right = 950.0
+offset_bottom = 711.0
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Swap to
+Cannon Reference"
+
+[node name="Label" type="Label" parent="selector_buttons/Button"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -26.0
+offset_right = 159.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 24
+text = "~coming soon~"
+
+[node name="interaction_zones" type="Node2D" parent="."]
+visible = false
+
+[node name="mouse" type="Area2D" parent="interaction_zones"]
+collision_mask = 0
+
+[node name="mouse_box" type="CollisionShape2D" parent="interaction_zones/mouse"]
+shape = SubResource("CircleShape2D_dx85r")
+
+[node name="scars" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/scars"]
+position = Vector2(581.75, 305)
+shape = SubResource("RectangleShape2D_dx85r")
+
+[node name="jaw" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/jaw"]
+position = Vector2(618.5, 127.5)
+shape = SubResource("RectangleShape2D_64s04")
+
+[node name="mask" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/mask"]
+position = Vector2(618, 169)
+shape = SubResource("RectangleShape2D_3e5nl")
+
+[node name="hands" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/hands"]
+position = Vector2(536.5, 387)
+shape = SubResource("RectangleShape2D_r27ss")
+
+[node name="area2" type="CollisionShape2D" parent="interaction_zones/hands"]
+position = Vector2(761, 379)
+shape = SubResource("RectangleShape2D_r27ss")
+
+[node name="tan" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/tan"]
+position = Vector2(621, 80.5)
+shape = SubResource("RectangleShape2D_hmt25")
+
+[node name="cypress" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/cypress"]
+position = Vector2(848.555, 277.584)
+rotation = 0.598648
+shape = SubResource("RectangleShape2D_cvgrv")
+
+[node name="area2" type="CollisionShape2D" parent="interaction_zones/cypress"]
+position = Vector2(673.975, 534.685)
+rotation = 0.598648
+shape = SubResource("RectangleShape2D_6ttcb")
+
+[node name="name" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="area" type="CollisionShape2D" parent="interaction_zones/name"]
+position = Vector2(243, 76)
+shape = SubResource("RectangleShape2D_mjlt5")
+
+[node name="away_space" type="Area2D" parent="interaction_zones"]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction_zones/away_space"]
+polygon = PackedVector2Array(52, 5, 51, 23, 437, 23, 441, 126, 56, 129, 43, 41, 39, 2, -1, 11, -2, 719, 649, 714, 637, 680, 528, 614, 694, 388, 653, 344, 585, 355, 570, 453, 490, 448, 497, 244, 529, 207, 529, 41, 586, 38, 723, 38, 711, 212, 665, 207, 665, 319, 701, 368, 859, 163, 944, 222, 658, 678, 667, 705, 983, 711, 993, 27, 956, 3)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_right = 961.0
+offset_bottom = 720.0
+texture = ExtResource("12_i428j")
+
+[node name="Timer" type="Timer" parent="TextureRect"]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_hmt25")
+}
+
+[connection signal="toggled" from="selector_buttons/outfit_selectors/hat_box/hat_button" to="." method="_on_hat_button_toggled"]
+[connection signal="toggled" from="selector_buttons/outfit_selectors/hair_box/hair_button" to="." method="_on_hair_button_toggled"]
+[connection signal="toggled" from="selector_buttons/outfit_selectors/mask_box/mask_button" to="." method="_on_mask_button_toggled"]
+[connection signal="toggled" from="selector_buttons/outfit_selectors/chaps_box/chaps_button" to="." method="_on_chaps_button_toggled"]
+[connection signal="toggled" from="selector_buttons/outfit_selectors/gloves_box/gloves_button" to="." method="_on_gloves_button_toggled"]
+[connection signal="pressed" from="selector_buttons/outfit_selectors/shirt_box/shirt_down" to="." method="_on_shirt_down_pressed"]
+[connection signal="pressed" from="selector_buttons/outfit_selectors/shirt_box/shirt_up" to="." method="_on_shirt_up_pressed"]
+[connection signal="pressed" from="selector_buttons/outfit_selectors/pants_box/pants_down" to="." method="_on_pants_down_pressed"]
+[connection signal="pressed" from="selector_buttons/outfit_selectors/pants_box/pants_up" to="." method="_on_pants_up_pressed"]
+[connection signal="area_entered" from="interaction_zones/scars" to="." method="_on_scars_area_entered"]
+[connection signal="area_entered" from="interaction_zones/jaw" to="." method="_on_jaw_area_entered"]
+[connection signal="area_entered" from="interaction_zones/mask" to="." method="_on_mask_area_entered"]
+[connection signal="area_entered" from="interaction_zones/hands" to="." method="_on_hands_area_entered"]
+[connection signal="area_entered" from="interaction_zones/tan" to="." method="_on_tan_area_entered"]
+[connection signal="area_entered" from="interaction_zones/cypress" to="." method="_on_cypress_area_entered"]
+[connection signal="area_entered" from="interaction_zones/name" to="." method="_on_name_area_entered"]
+[connection signal="area_entered" from="interaction_zones/away_space" to="." method="_on_away_space_area_entered"]
+[connection signal="timeout" from="TextureRect/Timer" to="." method="_on_timer_timeout"]

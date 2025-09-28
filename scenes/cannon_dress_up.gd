@@ -150,3 +150,7 @@ func _on_name_area_entered(area: Area2D) -> void:
 
 func _on_away_space_area_entered(area: Area2D) -> void:
 	tid_bit_info_text.text = tid_bit_collection["constant"]
+
+
+func _on_timer_timeout() -> void:
+	$TextureRect/AnimationPlayer.play("fade_out")
