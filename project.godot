@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="Kurshal Interactive Reference"
-run/main_scene="uid://buoqivtamo5lr"
+run/main_scene="uid://dywvtwc6kfwyc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/show_image=false
 boot_splash/image="uid://8r1mgodvvokq"
 config/icon="res://icon.svg"
+
+[autoload]
+
+TransitionFade="*res://globals/transition_fade.tscn"
+Globals="*res://globals/globals.gd"
 
 [display]
 
